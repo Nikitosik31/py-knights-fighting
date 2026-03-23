@@ -1,14 +1,13 @@
 from app.KNIGHTS_list.factory import create_all_knights
 
 
-def battle(knights_data) -> dict:
+def battle(knights_data: dict) -> dict:
     knights = create_all_knights(knights_data)
 
     lancelot = knights["lancelot"]
     red_knight = knights["red_knight"]
     arthur = knights["arthur"]
     mordred = knights["mordred"]
-
 
     lancelot_stats = lancelot.get_stats()
     mordred_stats = mordred.get_stats()
