@@ -1,5 +1,6 @@
 from app.KNIGHTS_list.knight import Knight
 
+
 def battle(knight1: Knight, knight2: Knight) -> dict:
     stats1 = knight1.get_stats()
     stats2 = knight2.get_stats()

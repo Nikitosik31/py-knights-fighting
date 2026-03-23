@@ -1,5 +1,6 @@
 from app.KNIGHTS_list.knight import Knight
 
+
 def create_knight(data: dict) -> Knight:
     return Knight(
         name=data["name"],
@@ -9,6 +10,7 @@ def create_knight(data: dict) -> Knight:
         weapon=data["weapon"],
         potion=data["potion"]
     )
+
 
 def create_all_knights(knights_data: dict) -> dict:
     return {
