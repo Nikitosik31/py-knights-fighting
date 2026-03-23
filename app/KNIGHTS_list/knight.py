@@ -2,7 +2,15 @@ from app.data.knights import KNIGHTS
 
 
 class Knight:
-    def __init__(self, name: str, base_hp: int, base_power: int, armour: list, weapon: dict, potion: dict) -> None:
+    def __init__(
+            self,
+            name: str,
+            base_hp: int,
+            base_power: int,
+            armour: list,
+            weapon: dict,
+            potion: dict
+    ) -> None:
         self.name = name
         self.base_hp = base_hp
         self.base_power = base_power
