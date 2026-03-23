@@ -1,21 +1,43 @@
-from app.KNIGHTS_list.knight import Knight
+from app.KNIGHTS_list.factory import create_all_knights
 
 
-def battle(knight1: Knight, knight2: Knight) -> dict:
-    stats1 = knight1.get_stats()
-    stats2 = knight2.get_stats()
+def battle(knights_data) -> dict:
+    knights = create_all_knights(knights_data)
 
-    damage_to_1 = stats2["power"] - stats1["protection"]
-    damage_to_2 = stats1["power"] - stats2["protection"]
+    lancelot = knights["lancelot"]
+    red_knight = knights["red_knight"]
+    arthur = knights["arthur"]
+    mordred = knights["mordred"]
 
-    stats1["hp"] -= damage_to_1
-    stats2["hp"] -= damage_to_2
-    if stats1["hp"] <= 0:
-        stats1["hp"] = 0
-    if stats2["hp"] <= 0:
-        stats2["hp"] = 0
+
+    lancelot_stats = lancelot.get_stats()
+    mordred_stats = mordred.get_stats()
+    arthur_stats = arthur.get_stats()
+    red_knight_stats = red_knight.get_stats()
+
+    damage_to_1 = mordred_stats["power"] - lancelot_stats["protection"]
+    damage_to_2 = lancelot_stats["power"] - mordred_stats["protection"]
+
+    lancelot_stats["hp"] -= damage_to_1
+    mordred_stats["hp"] -= damage_to_2
+    if lancelot_stats["hp"] <= 0:
+        lancelot_stats["hp"] = 0
+    if mordred_stats["hp"] <= 0:
+        mordred_stats["hp"] = 0
+
+    damage_to_3 = red_knight_stats["power"] - arthur_stats["protection"]
+    damage_to_4 = arthur_stats["power"] - red_knight_stats["protection"]
+
+    arthur_stats["hp"] -= damage_to_3
+    red_knight_stats["hp"] -= damage_to_4
+    if arthur_stats["hp"] <= 0:
+        arthur_stats["hp"] = 0
+    if red_knight_stats["hp"] <= 0:
+        red_knight_stats["hp"] = 0
 
     return {
-        knight1.name: stats1["hp"],
-        knight2.name: stats2["hp"]
+        lancelot.name: lancelot_stats["hp"],
+        mordred.name: mordred_stats["hp"],
+        arthur.name: arthur_stats["hp"],
+        red_knight.name: red_knight_stats["hp"],
     }
