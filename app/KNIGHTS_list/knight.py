@@ -1,6 +1,3 @@
-from app.data.knights import KNIGHTS
-
-
 class Knight:
     def __init__(
             self,
