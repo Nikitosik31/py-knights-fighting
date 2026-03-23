@@ -38,14 +38,3 @@ class Knight:
             "power": power,
             "protection": protection
         }
-
-
-data = KNIGHTS["red_knight"]
-Knight(
-    name=data["name"],
-    base_hp=data["hp"],
-    base_power=data["power"],
-    armour=data["armour"],
-    weapon=data["weapon"],
-    potion=data["potion"]
-)
